@@ -1,0 +1,7 @@
+This is an example of using the following django applications:
+
+* django-openid-auth
+* python-openid (used internally by django-openid-auth)
+* django-profiles for User profile management.
+
+Thhe django-openid-auth is used along with openid-selector (http://code.google.com/p/openid-selector/) to display a nice UI for the user to select a OpenID Provider

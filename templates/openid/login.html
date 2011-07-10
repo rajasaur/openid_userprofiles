@@ -1,0 +1,54 @@
+{% load i18n %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Sign in with your OpenID</title>
+    <style type="text/css">
+        input.openid {
+            background: url({% url openid-logo %}) no-repeat;
+            background-position: 0 50%;
+            padding-left: 16px;
+        }
+    </style>
+    <link type="text/css" rel="stylesheet" href="/site_media/css/openid.css" />
+    <script type="text/javascript" src="/site_media/js/jquery-1.6.1.js"></script>
+    <script type="text/javascript" src="/site_media/js/openid-jquery.js"></script>
+    <script type="text/javascript" src="/site_media/js/openid-en.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            openid.init('openid_identifier');
+        });
+    </script>
+</head>
+<body>
+<h1>Sign in with your OpenID</h1>
+{% if form.errors %}
+<p class="errors">{% trans "Please correct errors below:" %}<br />
+    {% if form.openid_identifier.errors %}
+    <span class="error">{{ form.openid_identifier.errors|join:", " }}</span>
+    {% endif %}
+    {% if form.next.errors %}
+    <span class="error">{{ form.next.errors|join:", " }}</span>
+    {% endif %}
+</p>
+{% endif %}
+<form id="openid_form" name="fopenid" action="{{ action }}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend>{% trans "Sign In Using Your OpenID" %}</legend>
+        <div id="openid_choice">
+            <p>Please click your account provider:</p>
+            <div id="openid_btns"></div>
+        </div>
+        <div id="openid_input_area">
+            <label for="id_openid_identifier">{% trans "OpenID:" %}</label><br />
+            {{ form.openid_identifier }}
+            <input id="openid_submit" name="bsignin" type="submit" value="Sign in"/>
+        </div>
+ {% if next %}
+        <input type="hidden" name="next" value="{{ next }}" />
+ {% endif %}
+    </fieldset>
+</form>
+</body>
+</html>

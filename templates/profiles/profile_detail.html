@@ -1,0 +1,12 @@
+<h3>Showing user information for {{ user }} </h3>
+
+<ul>
+    <li>Username: {{ user.username }}
+    <li>Fullname: {{ user.first_name }}&nbsp;{{ user.last_name }}
+    <li>Email: {{ user.email }}
+
+    <li>Favourite Pet: {{ user.get_profile.favourite_pet }}
+    <li>Favourite Number: {{ user.get_profile.favourite_number }}
+</ul>   
+
+<a href="{% url go_home %}">Home</a>

@@ -1,0 +1,5 @@
+Django==1.2.5
+django-openid-auth==0.3
+django-profiles==0.2
+python-openid==2.2.5
+wsgiref==0.1.2
