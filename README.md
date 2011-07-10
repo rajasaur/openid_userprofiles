@@ -25,6 +25,7 @@ Try logging into http://localhost:8000. This should take you to a openid selecto
 ### Credits ###
 
 Credits go to the authors of the following packages
+
 * Django
 * django-openid-auth
 * python-openid
