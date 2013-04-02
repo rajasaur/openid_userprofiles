@@ -14,7 +14,7 @@ The django-openid-auth is used along with openid-selector (http://code.google.co
 
 1. git clone git://github.com/rajasaur/openid_userprofiles.git
 2. This is much easier done if you are using pip as Ive packaged the above dependencies using pip. If you are using pip, just do a
-    pip install -f requirements.txt
+    pip install -r requirements.txt
 3. python manage.py syncdb # to build the built-in sqlite schema
 4. python manage.py runserver
 5. Enjoy!
